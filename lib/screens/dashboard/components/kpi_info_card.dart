@@ -4,13 +4,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../constants.dart';
 
-class FileInfoCard extends StatelessWidget {
-  const FileInfoCard({
+class KpiInfoCard extends StatelessWidget {
+  const KpiInfoCard({
     Key? key,
     required this.info,
   }) : super(key: key);
 
-  final CloudStorageInfo info;
+  final KpiInfo info;
 
   @override
   Widget build(BuildContext context) {

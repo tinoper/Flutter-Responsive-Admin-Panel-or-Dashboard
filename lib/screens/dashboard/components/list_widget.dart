@@ -1,12 +1,11 @@
-import 'package:admin/models/recent_file.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../constants.dart';
+import '../../../models/list_item.dart';
 
-class RecentFiles extends StatelessWidget {
-  const RecentFiles({
+class ListWidget extends StatelessWidget {
+  const ListWidget({
     Key? key,
   }) : super(key: key);
 
@@ -22,7 +21,7 @@ class RecentFiles extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Recent Files",
+            "ListView Widget",
             style: Theme.of(context).textTheme.titleMedium,
           ),
           SizedBox(
@@ -32,7 +31,7 @@ class RecentFiles extends StatelessWidget {
               // minWidth: 600,
               columns: [
                 DataColumn(
-                  label: Text("File Name"),
+                  label: Text("Item Name"),
                 ),
                 DataColumn(
                   label: Text("Date"),
@@ -42,8 +41,8 @@ class RecentFiles extends StatelessWidget {
                 ),
               ],
               rows: List.generate(
-                demoRecentFiles.length,
-                (index) => recentFileDataRow(demoRecentFiles[index]),
+                listItems.length,
+                (index) => listWidgetDataRow(listItems[index]),
               ),
             ),
           ),
@@ -53,26 +52,26 @@ class RecentFiles extends StatelessWidget {
   }
 }
 
-DataRow recentFileDataRow(RecentFile fileInfo) {
+DataRow listWidgetDataRow(ListItem listItem) {
   return DataRow(
     cells: [
       DataCell(
         Row(
           children: [
             SvgPicture.asset(
-              fileInfo.icon!,
+              listItem.icon!,
               height: 30,
               width: 30,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
-              child: Text(fileInfo.title!),
+              child: Text(listItem.title!),
             ),
           ],
         ),
       ),
-      DataCell(Text(fileInfo.date!)),
-      DataCell(Text(fileInfo.size!)),
+      DataCell(Text(listItem.date!)),
+      DataCell(Text(listItem.size!)),
     ],
   );
 }

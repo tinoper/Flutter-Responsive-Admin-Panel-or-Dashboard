@@ -27,6 +27,8 @@ class Chart extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(height: defaultPadding),
+
+                /// Subtotal
                 Text(
                   "29.1",
                   style: Theme.of(context).textTheme.headlineMedium!.copyWith(
@@ -35,6 +37,8 @@ class Chart extends StatelessWidget {
                         height: 0.5,
                       ),
                 ),
+
+                /// Total
                 Text("of 128GB")
               ],
             ),
